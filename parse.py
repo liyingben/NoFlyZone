@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import shapefile
-
+#创建shp文件
 w = shapefile.Writer(target="polygon.shp", shapeType=shapefile.POLYGON)
 # w.poly(parts=[[[1, 5], [5, 5], [5, 1], [3, 3], [1, 1]]])
 # w.field('FIRST_FLD', 'C', '40')
@@ -13,7 +13,8 @@ w.field('country', 'C', '40')
 w.field('color', 'C', '10')
 f = open("data.txt", "r")
 
-lines = f.readlines()  # 按行读取文件中的内容
+#解析下载的文件
+lines = f.readlines()
 
 for line in lines:  # 循环输出读取的内容
 
@@ -36,4 +37,3 @@ for line in lines:  # 循环输出读取的内容
                     except TypeError:
                         print sub_area['polygon_points']
 
-# w.save('/')
